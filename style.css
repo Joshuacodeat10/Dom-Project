@@ -1,0 +1,97 @@
+body{
+    font-family:Arial;
+    padding-top:30px;
+}
+.dropdown{
+    display:flex;
+    flex-direction: column;
+    color:white;
+    background-color: gray;
+
+    align-items: center;
+    justify-content: center;
+}
+.dropdown a{
+    background-color: red;
+    width:100%;
+}
+#text{
+    padding:30px;
+}
+.div{
+    width:100%;
+    padding:100px;
+    background-color: black;
+}
+table{
+    border:1px solid;
+}
+td{
+    border:1px solid;
+}
+tr{
+    border:1px solid ;
+}
+.box{
+    border:1px solid black;
+}
+button{
+    border:1px solid rgb(221, 207, 207);
+    padding:10px;
+    background-color:rgb(221, 207, 207);
+    border-radius:3px;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    gap:30px;
+}
+.image{
+    padding-top:20px;
+    padding-bottom:20px;
+    border:1px solid gray;
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap:4rem;
+}
+.image img{
+    border-radius:2px;
+    width:540px;
+    
+    height:320px;
+}
+.img1.enlarge{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top: 0px;  left: 0px;
+}
+.img2.enlarge{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top: 0px;  left: 0px;
+}
+button{
+
+}
+.img3.enlarge{
+    width:100%;
+    height:100%;
+    position:fixed;
+    top: 0px;  left: 0px;
+}
+#tooltip1{
+    display: none;
+}
+#tooltip-container{
+    display:flex;
+    justify-content: center;
+    background-color:red;
+    width:250px;
+    height:100px;
+}
+#tooltip-container:hover #tooltip1{
+display:block;
+}

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script></script>
+    <script>
+        function toggleFunction(){
+            var div=document.getElementById('div');
+            if(div.style.display === 'none'){
+                div.style.display='block';
+                
+            }
+            else[
+                div.style.display='none'
+            ]
+        }
+    </script>
+    <script>
+
+    </script>
+</head>
+<body><h1>p tag that changes background color onclick</h1>
+    <button id="btn">click</button>
+    <p id="text">Text</p>
+    <script>
+        const btn = document.getElementById('btn')
+        btn.addEventListener("click", myFunction);
+        function myFunction(){
+            var randomColor = Math.floor(Math.random()*17200).toString(16);
+            document.getElementById('text').style.backgroundColor='#'+randomColor;
+            console.log(randomColor)
+        }
+    </script>
+    <h1>Hide and show button click</h1>
+       <button onclick="toggleFunction()">Hide and show</button>
+       <div id="div"class="div"></div>
+        <h1>Table inside an obj array being display in the html</h1>
+       <div id="table-container"><script>
+        function createTableFromObjects(data){
+          const table=document.createElement('table');
+          const headerRow= document.createElement('tr');
+          const keys=Object.keys(data[0]);
+          for(const key of keys){
+            const headerCell= document.createElement('th')
+            headerCell.textContent=key;
+            headerRow.appendChild(headerCell)
+          }
+          table.appendChild(headerRow);
+
+  // Create table data rows
+  for (const obj of data) {
+    const dataRow = document.createElement('tr');
+    for (const key of keys) {
+      const dataCell = document.createElement('td');
+      dataCell.textContent = obj[key];
+      dataRow.appendChild(dataCell);
+    }
+    table.appendChild(dataRow);
+  }
+
+  return table;
+}
+const dataArray = [
+  { Name: 'Joshua', Age: 20, Country: 'Nigeria' },
+  { Name: 'Malin', Age: 25, Country: 'Argentina'},
+  { Name: 'AMina', Age:32 , Country:'Dubai' },
+];
+
+const table = createTableFromObjects(dataArray);
+const tableContainer = document.getElementById('table-container');
+tableContainer.appendChild(table);
+
+       </script></div>
+       <h1>Popup Image Gallery</h1>
+      <div class="image">
+        
+
+        <img class="img1" onclick="imageEnlarge()" src="images/capybara-3247363_1280.jpg">
+        <img class="img2" onclick="imageEnlarge1()"src="images/capybara-4180603_1280.jpg">
+        <img  class="img3"onclick="imageEnlarge2()"src="images/capybara-7396716_1280.jpg">
+        <script>
+          let img1= document.querySelector('.img1')
+          function imageEnlarge(){
+            img1.classList.toggle('enlarge');
+          }
+          let img2= document.querySelector('.img2')
+          function imageEnlarge1(){
+            img2.classList.toggle('enlarge');
+          }
+          let img3= document.querySelector('.img3')
+          function imageEnlarge2(){
+            img3.classList.toggle('enlarge');
+          }
+        </script>
+      </div>
+      <div class="list">
+        <h1>List item displayed from an array, and an input to add new items to the list, with a delete buttton for the newly created items</h1>
+       <input class="input"type="text"></input>
+       <button onclick="getList()">submit</button>
+       <button onclick="removeList()">deleter</button>
+       <p class="result"></p>
+       <div class="container">
+      
+       </div>
+       <script>
+            let val = document.querySelector('.input');
+            let resultContainer=document.querySelector('.container')
+  
+      function getList() {
+        let textValue = val.value;
+    if(textValue !== ''){    
+        let result = document.createElement('li');
+    result.innerText = textValue;
+  
+   
+  let deleteButton= document.createElement('button')
+  deleteButton.innerText='Delete';
+  deleteButton.onclick=function(){
+    resultContainer.removeChild(result)
+  } 
+  result.appendChild(deleteButton)
+  resultContainer.appendChild(result)
+    } 
+} 
+
+       </script>
+       <script>
+        
+        
+  
+        const array=['bookss','pens','paper'];
+        for (const element of array){
+         var apend= document.createElement('li')
+         apend.innerText=element;
+           let deleteButton= document.createElement('button')
+  deleteButton.innerText='Delete';
+  deleteButton.onclick=function(li){
+    return function(){
+    resultContainer.removeChild(li)
+    }
+  }(apend);
+   apend.appendChild(deleteButton)
+          resultContainer.appendChild(apend)
+        }
+       </script>
+      </div>
+      <h1>div that displays the value of an attribute in a p tag tooltip</h1>
+      <div id="tooltip-container" data-tooltip="Block">
+
+  
+      
+      <p id="tooltip1"></p>
+      
+      
+      <script>
+        document.addEventListener("DOMContentLoaded", function() {
+          let tooltip = document.getElementById('tooltip-container').getAttribute('data-tooltip');
+          document.getElementById('tooltip1').innerHTML = tooltip;
+        });
+      </script>
+    </div> 
+    <div class>
+<h1>Form with javscript validation</h1>
+      <form class="form" name="form" onsubmit="return validateForm()">
+    <label for="name">   Name <input type="name" id="name" name="form-name"></label>
+    <label for="name">Email    <input type="text" name="form-email" id=""></label>
+        <input type="submit">
+      </form>
+      <script>
+        function validateForm(){
+          let name=document.forms["form"]["form-name"].value;
+          let email=document.forms["form"]["form-email"].value;
+       
+          if (name === "" ){
+            alert('name something')
+            return false;
+          }
+     if(!email.includes('.com')){
+            alert('type an email')
+            return false;
+          }
+          else{
+            alert('succes')
+            return true;
+          }
+        }
+      </script>
+
+      
+    </div>     
+    <div class="links">
+      <h1>Dropdown dynamically created with array</h1>
+      <label>Choose</label>
+      <select class="select"name="Pic" value="cars" id="">
+    
+
+         
+
+      </select>
+    
+   <script>
+    const select=document.querySelector('.select')
+    const link=document.querySelector('.links')
+       const array1=['skyscraper','cotrage'];
+        for (const element1 of array1){
+         var option= document.createElement('option')
+         option.innerText=element1;
+          select.appendChild(option)
+       
+        }
+        select.addEventListener('change', function(event) {
+    var selectedOption = event.target.options[event.target.selectedIndex].text;
+    var inner=document.createElement('h1')
+    inner.innerText=selectedOption;
+console.log(inner)
+link.appendChild(inner)
+  });
+      </script>
+         
+    </div>
+    <div class="task-container">
+      <!-- <form name='task'class="" onsubmit="return addTask()">  -->
+        <h1>Todo list with delete and mark as complete</h1>
+        <input type="text" name="task-item" id="task-input"></input>
+       <input onclick="addTask()"type="button" value="submit">
+      <!-- </form>
+       -->
+    <div class="tasks">
+
+    </div>
+      <script>
+const tasks=[]
+
+const taskcontainer=document.querySelector('.tasks')
+//initialize the array and import the class of the tasks into a const          
+function addTask(){
+
+const taskinput= document.getElementById('task-input').value;
+//get the value of the input tag
+tasks.push({text:taskinput, checked:false})
+//push a new array definition into the exisiting empty array
+taskcontainer.innerHTML = '';
+if(taskinput!== ''){     
+  for(const task of tasks){
+    let item =document.createElement('div');
+    item.className='box'
+    item.innerText=task.text;
+    taskcontainer.appendChild(item)
+
+    let deleteButton1= document.createElement('button')
+    deleteButton1.innerText='Delete';
+    deleteButton1.onclick = function() {
+     taskcontainer.removeChild(item);
+     const index = tasks.findIndex(isItem);
+
+      if (index !== -1) {
+        tasks.splice(index, 1);
+        console.log('Item deleted from tasks array:', tasks);
+      }
+};
+
+function isItem(taskItem, taskIndex) {
+    return taskItem === task; // Replace `task` with the value you want to delete from the array
+}  
+var checkbox = document.createElement("input");
+  checkbox.type = "checkbox";
+  checkbox.id = "radioButton1";
+  checkbox.name = "group1";
+  checkbox.value = "option1";
+  checkbox.checked=task.checked;
+  var label= document.createElement('label')
+checkbox.addEventListener('change', function(){
+task.checked=checkbox.checked
+})
+  
+          item.appendChild(deleteButton1)
+          item.appendChild(checkbox)
+          console.log(tasks)
+           }
+          }          
+        
+          }
+        
+      </script>
+      
+    </div>
+</body>
+</html> 
